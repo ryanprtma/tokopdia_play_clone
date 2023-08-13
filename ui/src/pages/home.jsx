@@ -1,15 +1,20 @@
+import { useContext } from 'react';
 import VideoThumbnail from '../components/Fragments/VideoThumbnail';
 import Navbar from '../components/Fragments/Navbar'
 
-import VideoThumbnailsLayouts from '../layouts/VideosThumbnailLayouts'
+import VideosThumbnailLayouts from '../layouts/VideosThumbnailLayouts'
+
+import { VideosThumbnailContext } from '../context/VideosThumbnailContext';
 
 export default function HomePage() {
+    const { videos } = useContext(VideosThumbnailContext);
+    const data = videos;
     return (
         <>
             <Navbar />
-            <VideoThumbnailsLayouts>
+            <VideosThumbnailLayouts data={data}>
                 <VideoThumbnail />
-            </VideoThumbnailsLayouts>
+            </VideosThumbnailLayouts>
         </>
     )
 }

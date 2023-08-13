@@ -5,7 +5,8 @@ import { Card, CardActionArea, CardMedia, Chip, Stack, Typography } from '@mui/m
 import DiscountIcon from '@mui/icons-material/Discount';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-function VideoThumbnail() {
+function VideoThumbnail(props) {
+    const { additionalProp } = props;
     return (
         <>
             <Card sx={{ maxWidth: 350, borderRadius: 3 }}>
@@ -14,7 +15,7 @@ function VideoThumbnail() {
                         <CardMedia
                             component="img"
                             height="500"
-                            image="https://source.unsplash.com/random"
+                            image={additionalProp.thumbnail_url}
                             alt="video thumbnail"
                         />
                         <div style={{ position: "absolute", color: "white", top: 20, left: "5%", }}>
