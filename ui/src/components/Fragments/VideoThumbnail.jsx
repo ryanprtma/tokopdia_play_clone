@@ -14,7 +14,7 @@ function VideoThumbnail(props) {
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="500"
+                            height="515"
                             image={additionalProp.thumbnail_url}
                             alt="video thumbnail"
                         />
@@ -27,7 +27,7 @@ function VideoThumbnail(props) {
                                     bgcolor: '#f94d63'
                                 }} />
 
-                                <Chip icon={<VisibilityIcon color="white" />} label="15k" size="small" sx={{
+                                <Chip icon={<VisibilityIcon color="white" />} label={additionalProp.view ?? 0} size="small" sx={{
                                     borderRadius: 1,
                                     bgcolor: 'rgba(0,0,0,.54)',
                                     color: 'white'
@@ -46,8 +46,8 @@ function VideoThumbnail(props) {
                             }} />
                             <br />
                             <br />
-                            <Typography variant="h6"><strong>Title</strong></Typography>
-                            <Typography variant="subtitle1">Store name</Typography>
+                            <Typography variant="h6"><strong>{additionalProp.description ?? "Title"}</strong></Typography>
+                            <Typography variant="subtitle1">{additionalProp.store_name ?? "Store Name"}</Typography>
                         </div>
                     </CardActionArea>
                 </div >
