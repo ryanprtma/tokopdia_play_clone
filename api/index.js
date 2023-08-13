@@ -4,6 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const cors = require('cors');
+app.use(cors());
+
 const Connection = require('./connection');
 const mongoString = process.env.DATABASE_URL;
 const database = new Connection(mongoString);
