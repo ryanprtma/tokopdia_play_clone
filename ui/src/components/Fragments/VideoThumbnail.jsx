@@ -15,7 +15,7 @@ function VideoThumbnail() {
                             component="img"
                             height="500"
                             image="https://source.unsplash.com/random"
-                            alt="green iguana"
+                            alt="video thumbnail"
                         />
                         <div style={{ position: "absolute", color: "white", top: 20, left: "5%", }}>
                             <Stack direction="row" spacing={1}>
