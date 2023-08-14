@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -13,14 +14,15 @@ const VideoDetailLayouts = (props) => {
             <Box sx={{ position: 'absolute', height: '100%', zIndex: 2, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
                 <AppBar sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
                     <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                        >
-                            <CloseIcon />
-                        </IconButton>
+                        <Link to="/play/channels">
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                aria-label="menu"
+                                sx={{ color: 'white' }}
+                            >
+                                <CloseIcon />
+                            </IconButton></Link>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             <strong>Title</strong>
                         </Typography>
