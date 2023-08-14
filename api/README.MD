@@ -348,7 +348,7 @@ This API will create a new comment for the video with the specified id.
     git clone https://github.com/ryanprtma/tokopedia-play-clone.git
     ```
 
-2. cd midterm_peoject
+2. cd api
 
 3. Install dependencies
 
