@@ -5,6 +5,10 @@ const productschema = new mongoose.Schema({
         required: true,
         type: String
     },
+    thumbnail_url: {
+        required: true,
+        type: String
+    },
     title: {
         required: true,
         type: String
@@ -24,45 +28,4 @@ const productschema = new mongoose.Schema({
 
 const Product = mongoose.model('Products', productschema);
 
-class Products{
-    constructor(){
-    }
-
-    async getProducts() {
-        try{
-            const result = await Product.find();
-            return result;
-        }
-        catch(error){
-            throw error
-        }
-    }
-
-    async getProductsByVideoId(videoId) {
-        try{
-            const result = await Product.find({"video_id" : new mongoose.Types.ObjectId(videoId)});
-            return result;
-        }
-        catch(error){
-            throw error;
-        }
-    }
-
-    async postProduct(title, price, productLink, videoId) {
-        try{
-            const product = new Product({
-                title : title,
-                price : price,
-                product_link : productLink,
-                video_id : videoId
-            });
-
-            const result = await product.save();
-            return result
-        } catch(error) {
-            throw error
-        }
-    }
-}
-
-module.exports = Products;
+module.exports = Product;

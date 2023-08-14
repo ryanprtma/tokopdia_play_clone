@@ -1,25 +1,26 @@
-const Videos = require('../models/video');
+const Video = require('../models/video');
 const NotFoundError = require('../exceptions/NotFoundError');
 
 class VideosService {
-    constructor() {
-        this._video = new Videos()
-    }
-
     async getVideos() {
-        const videos = await this._video.getVideos();
-        return videos;
+        try {
+            const result = await Video.find();
+            return result;
+        } catch (error) {
+            throw error
+        }
     }
 
     async getVideoById(id) {
-        const video = await this._video.getVideoById(id);
-
-        if (!video) {
-            throw new NotFoundError('Video tidak ditemukan');
+        try {
+            const result = await Video.findById(id);
+            if (!result) {
+                throw new NotFoundError('Video tidak ditemukan');
+            }
+            return result;
+        } catch (error) {
+            throw error
         }
-
-        return video;
-
     }
 }
 

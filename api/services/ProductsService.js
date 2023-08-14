@@ -1,25 +1,38 @@
 const InvariantError = require('../exceptions/InvariantError');
-const Products = require('../models/product');
+const Product = require('../models/product');
 
 class ProductsService {
-    constructor() {
-        this._products = new Products()
-    }
-
     async getProductsByVideoId(videoId) {
-        const productss = await this._products.getProductsByVideoId(videoId);
-        return productss;
+        try {
+            const result = await Product.find({ "video_id": videoId });
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
-    async saveProduct({ title, price, productLink, videoId }) {
-        const savedProduct = await this._products.postProduct(title, price, productLink, videoId);
-        const result = savedProduct;
+    async saveProduct({ title, price, productLink, thumbnailUrl, videoId }) {
+        try {
+            const product = new Product({
+                title: title,
+                price: price,
+                product_link: productLink,
+                thumbnail_url: thumbnailUrl,
+                video_id: videoId
+            });
 
-        if (!result) {
-            throw new InvariantError('Produk gagal ditambahkan')
+            const result = await product.save();
+
+            if (!result) {
+                throw new InvariantError('Produk gagal ditambahkan')
+            }
+
+            return result
+        } catch (error) {
+            console.log(error);
+            throw error
         }
-
-        return result;
     }
 }
 

@@ -1,30 +1,45 @@
 const InvariantError = require('../exceptions/InvariantError');
-const Comments = require('../models/comment');
+const Comment = require('../models/comment');
 
 class CommentsService {
-    constructor() {
-        this._comment = new Comments()
-    }
-
     async getComments() {
-        const comments = await this._comment.getComments();
-        return comments;
+        try {
+            const result = await Comment.find();
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     async getCommentsByVideoId(videoId) {
-        const comments = await this._comment.getCommentsByVideoId(videoId);
-        return comments;
+        try {
+            const result = await Comment.find({ "video_id": videoId }).sort({ "createdAt": -1 });
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
     }
 
     async submitComments({ username, comment, videoId }) {
-        const saveComments = await this._comment.postComments(username, comment, videoId);
-        const result = saveComments;
+        try {
+            const newComment = new Comment({
+                username: username,
+                comment: comment,
+                video_id: videoId
+            });
 
-        if (!result) {
-            throw new InvariantError('Komentar gagal ditambahkan')
+            const result = await newComment.save();
+
+            if (!result) {
+                throw new InvariantError('Komentar gagal ditambahkan')
+            }
+
+            return result
+        } catch (error) {
+            throw error
         }
-
-        return result;
     }
 }
 
