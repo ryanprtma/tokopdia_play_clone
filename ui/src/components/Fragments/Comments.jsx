@@ -15,24 +15,27 @@ export default function Comments({ videoId }) {
                             <Box display={'flex'} alignItems="center" sx={{ height: "75vh" }}>
                                 <ListItemText sx={{ textAlign: 'center' }} secondary={"belum ada komentar"} />
                             </Box>
-                            : comments.map((value, index) => (
-                                <ListItem key={index} sx={{ display: 'flex' }} alignItems="flex-start">
-                                    <ListItemAvatar>
-                                        <Avatar>{'https://source.unsplash.com/random'}</Avatar>
-                                    </ListItemAvatar>
-                                    <ListItemText sx={{ textAlign: 'justify' }} primary={value.username} secondary=
-                                        {
-                                            <>
-                                                <Typography variant='caption'>x jam yg lalu</Typography>
-                                                <br />
-                                                {value.comment}
-                                            </>
-                                        } />
-                                </ListItem>
-                            ))}
+                            :
+                            <Box sx={{ minHeight: '75vh', maxHeight: 'auto' }}>
+                                {comments.map((value, index) => (
+                                    <ListItem key={index} sx={{ display: 'flex' }} alignItems="flex-start">
+                                        <ListItemAvatar>
+                                            <Avatar>{'https://source.unsplash.com/random'}</Avatar>
+                                        </ListItemAvatar>
+                                        <ListItemText sx={{ textAlign: 'justify' }} primary={value.username} secondary=
+                                            {
+                                                <>
+                                                    <Typography variant='caption'>x jam yg lalu</Typography>
+                                                    <br />
+                                                    {value.comment}
+                                                </>
+                                            } />
+                                    </ListItem>
+                                ))}
+                            </Box>}
                     </List>
                 </Paper>
-            </Box>
+            </Box >
         </>
     )
 }

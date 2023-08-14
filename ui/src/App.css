@@ -1,3 +1,28 @@
+.MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff !important;
+  border-radius: 10;
+  color: white;
+
+}
+
+.inputRounded .MuiOutlinedInput-root {
+  border-radius: 50px;
+}
+
+.outlined-rounded-input {
+  border: 2px solid #ffffff;
+  border-radius: 5rem;
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
+  color: white;
+}
+
+/* Apply focus styles to the input */
+.outlined-rounded-input:focus {
+  border: 4px solid #ffffff;
+}
+
 .App {
   text-align: center;
   margin: 0;

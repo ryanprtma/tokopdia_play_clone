@@ -5,6 +5,7 @@ export const CommentsContext = createContext();
 export const CommentsProvider = (props) => {
     const [videoId, setVideoId] = useState('')
     const [comments, setComments] = useState([]);
+    const [isCommented, setIsCommented] = useState(false);
 
     const fetchWebApi = async (videoId) => {
         try {
@@ -23,16 +24,20 @@ export const CommentsProvider = (props) => {
             console.error('Error fetching data:', error);
             return null;
         }
+
+        setIsCommented(false);
     }
+
+
 
     useEffect(() => {
         fetchWebApi(videoId);
-    }, [videoId]);
+    }, [videoId, isCommented]);
 
     return (
         <>
             <CommentsContext.Provider value={
-                { comments, setComments, videoId, setVideoId }
+                { comments, setComments, videoId, setVideoId, setIsCommented }
             }>{props.children}</CommentsContext.Provider>
         </>
     )

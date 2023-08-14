@@ -9,7 +9,7 @@ const VideoDetailLayouts = (props) => {
 
     return (
         <Box>
-            <BluredBackground imgUrl={data.thumbnail_url}/>
+            <BluredBackground imgUrl={data.thumbnail_url} />
             <Box sx={{ position: 'absolute', height: '100%', zIndex: 2, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
                 <AppBar sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
                     <Toolbar>
@@ -32,7 +32,7 @@ const VideoDetailLayouts = (props) => {
                 <Box px={10} paddingTop={10} paddingBottom={2} sx={{ display: 'flex', flexDirection: 'row', maxHeight: '75vh' }}>
                     {children}
                 </Box >
-                <Comment />
+                <Comment videoId={data._id} />
             </Box>
         </Box>
     );
