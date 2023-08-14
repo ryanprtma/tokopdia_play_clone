@@ -22,14 +22,14 @@ function VideoThumbnail(props) {
                             />
                             <div style={{ position: "absolute", color: "white", top: 20, left: "5%", }}>
                                 <Stack direction="row" spacing={1}>
-                                    <Chip label="LIVE" color="primary" size="small" sx={{
+                                    {/* <Chip label="LIVE" color="primary" size="small" sx={{
                                         borderRadius: 1, '& .MuiChip-label': {
                                             fontWeight: 'bold'
                                         },
                                         bgcolor: '#f94d63'
-                                    }} />
+                                    }} /> */}
 
-                                    <Chip icon={<VisibilityIcon color="white" />} label={additionalProp.view ?? 0} size="small" sx={{
+                                    <Chip icon={<VisibilityIcon color="white" />} label={additionalProp.views ?? 0} size="small" sx={{
                                         borderRadius: 1,
                                         bgcolor: 'rgba(0,0,0,.54)',
                                         color: 'white'
@@ -48,7 +48,7 @@ function VideoThumbnail(props) {
                                 }} />
                                 <br />
                                 <br />
-                                <Typography variant="h6"><strong>{additionalProp.description ?? "Title"}</strong></Typography>
+                                <Typography variant="h6"><strong>{additionalProp.title ?? "Title"}</strong></Typography>
                                 <Typography variant="subtitle1">{additionalProp.store_name ?? "Store Name"}</Typography>
                             </div>
                         </CardActionArea>

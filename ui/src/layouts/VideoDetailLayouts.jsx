@@ -24,10 +24,10 @@ const VideoDetailLayouts = (props) => {
                                 <CloseIcon />
                             </IconButton></Link>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            <strong>Title</strong>
+                            <strong>{data.title ?? "Video Title"}</strong>
                         </Typography>
                         <Typography variant="h6">
-                            <strong>Store Name</strong>
+                            <strong>{data.store_name ?? "Store Name"}</strong>
                         </Typography>
                     </Toolbar>
                 </AppBar>
