@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Card, CardActionArea, CardMedia, Chip, Stack, Typography } from '@mui/material';
 
@@ -11,45 +12,47 @@ function VideoThumbnail(props) {
         <>
             <Card sx={{ maxWidth: 350, borderRadius: 3 }}>
                 <div style={{ position: "relative" }}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="515"
-                            image={additionalProp.thumbnail_url}
-                            alt="video thumbnail"
-                        />
-                        <div style={{ position: "absolute", color: "white", top: 20, left: "5%", }}>
-                            <Stack direction="row" spacing={1}>
-                                <Chip label="LIVE" color="primary" size="small" sx={{
+                    <Link to={`/play/channels/${additionalProp._id}`}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                height="515"
+                                image={additionalProp.thumbnail_url}
+                                alt="video thumbnail"
+                            />
+                            <div style={{ position: "absolute", color: "white", top: 20, left: "5%", }}>
+                                <Stack direction="row" spacing={1}>
+                                    <Chip label="LIVE" color="primary" size="small" sx={{
+                                        borderRadius: 1, '& .MuiChip-label': {
+                                            fontWeight: 'bold'
+                                        },
+                                        bgcolor: '#f94d63'
+                                    }} />
+
+                                    <Chip icon={<VisibilityIcon color="white" />} label={additionalProp.view ?? 0} size="small" sx={{
+                                        borderRadius: 1,
+                                        bgcolor: 'rgba(0,0,0,.54)',
+                                        color: 'white'
+                                    }} />
+                                </Stack>
+                            </div>
+
+                            <div style={{ position: "absolute", color: "white", bottom: 10, left: "5%", }}>
+                                <Typography bgcolor={"#f94d63"} variant="caption" px={0.5} pt={0.5} pb={1} borderRadius={1} sx={{ fontSize: "0.6rem" }}><b>Hanya saat live</b></Typography>
+                                <br />
+                                <Chip icon={<DiscountIcon />} label="Diskon 10%" color="success" size="small" sx={{
                                     borderRadius: 1, '& .MuiChip-label': {
                                         fontWeight: 'bold'
                                     },
-                                    bgcolor: '#f94d63'
+                                    bgcolor: 'rgb(0, 170, 91)'
                                 }} />
-
-                                <Chip icon={<VisibilityIcon color="white" />} label={additionalProp.view ?? 0} size="small" sx={{
-                                    borderRadius: 1,
-                                    bgcolor: 'rgba(0,0,0,.54)',
-                                    color: 'white'
-                                }} />
-                            </Stack>
-                        </div>
-
-                        <div style={{ position: "absolute", color: "white", bottom: 10, left: "5%", }}>
-                            <Typography bgcolor={"#f94d63"} variant="caption" px={0.5} pt={0.5} pb={1} borderRadius={1} sx={{ fontSize: "0.6rem" }}><b>Hanya saat live</b></Typography>
-                            <br />
-                            <Chip icon={<DiscountIcon />} label="Diskon 10%" color="success" size="small" sx={{
-                                borderRadius: 1, '& .MuiChip-label': {
-                                    fontWeight: 'bold'
-                                },
-                                bgcolor: 'rgb(0, 170, 91)'
-                            }} />
-                            <br />
-                            <br />
-                            <Typography variant="h6"><strong>{additionalProp.description ?? "Title"}</strong></Typography>
-                            <Typography variant="subtitle1">{additionalProp.store_name ?? "Store Name"}</Typography>
-                        </div>
-                    </CardActionArea>
+                                <br />
+                                <br />
+                                <Typography variant="h6"><strong>{additionalProp.description ?? "Title"}</strong></Typography>
+                                <Typography variant="subtitle1">{additionalProp.store_name ?? "Store Name"}</Typography>
+                            </div>
+                        </CardActionArea>
+                    </Link>
                 </div >
             </Card >
         </>
