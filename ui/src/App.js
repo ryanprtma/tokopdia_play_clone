@@ -1,11 +1,6 @@
 import "./App.css"
+import Routes from './routes/Routes';
 
-import HomePage from "./pages/home";
-
-export default function App() {
-  return (
-    <>
-      <HomePage />
-    </>
-  );
-}
+const App = () =>
+  <Routes />
+export default App;
