@@ -7,6 +7,8 @@ export const CommentsProvider = (props) => {
     const [comments, setComments] = useState([]);
     const [isCommented, setIsCommented] = useState(false);
 
+    const [currentTime, setCurrentTime] = useState(new Date());
+
     const fetchWebApi = async (videoId) => {
         try {
             const apiUrl = `http://localhost:3000/api/videos/${videoId}/comments`;
@@ -31,8 +33,17 @@ export const CommentsProvider = (props) => {
 
 
     useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 5000);
+
+
         fetchWebApi(videoId);
-    }, [videoId, isCommented]);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [videoId, isCommented, currentTime]);
 
     return (
         <>
