@@ -36,7 +36,7 @@ class Comments{
 
     async getCommentsByVideoId(videoId) {
         try{
-            const result = await Comment.find({"video_id" : new mongoose.Types.ObjectId(videoId)});
+            const result = await Comment.find({"video_id" : new mongoose.Types.ObjectId(videoId)}).sort({"createdAt":-1});
             return result;
         }
         catch(error){
