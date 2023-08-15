@@ -2,8 +2,13 @@ const Video = require('../models/video');
 const NotFoundError = require('../exceptions/NotFoundError');
 
 class VideosService {
-    async getVideos() {
+    async getVideos(req) {
         try {
+            if (req.body.search != null) {
+                const result = await Video.find({ "title": new RegExp(req.body.search, 'i') });
+                return result;
+            }
+
             const result = await Video.find();
             return result;
         } catch (error) {

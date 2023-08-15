@@ -14,7 +14,7 @@ class VideosController {
 
     async getVideosController(req, res) {
         try {
-            const videos = await this._service.getVideos();
+            const videos = await this._service.getVideos(req);
             return res.status(200).json({data:{videos}});
         } catch(error) {
             if(error instanceof ClientError) {
