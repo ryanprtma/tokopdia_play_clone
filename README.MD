@@ -1,4 +1,4 @@
-# Tokopedia Play - Backend
+# Tokopedia Play Clone App
 
 This repository contains backend for the final project of
 the course "Generasi Gigih 3.0 - Fullstack Engineering" by
