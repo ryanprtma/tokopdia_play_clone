@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import { AppBar, Chip, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 
 export default function ButtonAppBar() {
-    const [currentChip, setCurrentChip] = useState("/");
-    const currentPath = window.location.pathname;
     return (
         <AppBar position="fixed" sx={{ padding: 1, backgroundColor: "rgb(40, 40, 47)" }}>
             <Toolbar>
@@ -28,10 +25,9 @@ export default function ButtonAppBar() {
             </Toolbar>
             <Toolbar>
                 <Stack direction="row" spacing={1}>
-                    {currentChip === currentPath ? <Chip
-                        label="Clickable Link"
+                    <Chip
+                        label="Explore"
                         component="a"
-                        href="/"
                         variant="outlined"
                         color="success"
                         sx={{
@@ -44,24 +40,7 @@ export default function ButtonAppBar() {
                             paddingLeft: 1.5
                         }}
                         clickable
-                    /> :
-                        <Chip
-                            label="Clickable Link"
-                            component="a"
-                            href="/"
-                            variant="outlined"
-                            sx={{
-                                borderRadius: 5,
-                                fontSize: "1.2rem",
-                                fontWeight: "bold",
-                                paddingTop: 3,
-                                paddingBottom: 3,
-                                paddingRight: 1.5,
-                                paddingLeft: 1.5,
-                                color: "white"
-                            }}
-                            clickable
-                        />}
+                    />
                 </Stack>
             </Toolbar>
         </AppBar>

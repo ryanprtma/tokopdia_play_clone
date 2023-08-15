@@ -20,7 +20,7 @@ export default function Products({ videoId }) {
                                                 component="img"
                                                 height="auto"
                                                 width="100%"
-                                                image={'https://source.unsplash.com/random'}
+                                                image={`${value.thumbnail_url}`}
                                                 alt="product"
                                                 sx={{
                                                     borderRadius: 1

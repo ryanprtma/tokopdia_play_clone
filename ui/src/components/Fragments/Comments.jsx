@@ -25,7 +25,7 @@ export default function Comments({ videoId }) {
                                         <ListItemText sx={{ textAlign: 'justify' }} primary={value.username} secondary=
                                             {
                                                 <>
-                                                    <Typography variant='caption'>x jam yg lalu</Typography>
+                                                    {/* <Typography variant='caption'>x jam yg lalu</Typography> */}
                                                     <br />
                                                     {value.comment}
                                                 </>
