@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -19,9 +21,11 @@ export default function ButtonAppBar() {
                 <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
                     <strong>Play</strong>
                 </Typography>
-                <IconButton color="inherit">
-                    <SearchIcon />
-                </IconButton>
+                <Link to="/play/channels/search">
+                    <IconButton >
+                        <SearchIcon sx={{ color: 'white' }} />
+                    </IconButton>
+                </Link>
             </Toolbar>
             <Toolbar>
                 <Stack direction="row" spacing={1}>

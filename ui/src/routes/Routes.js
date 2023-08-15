@@ -6,6 +6,7 @@ import { ProductsProvider } from '../context/ProductsContext';
 
 import HomePage from '../pages/home';
 import VideoDetailPage from '../pages/videoDetail';
+import SearcPage from '../pages/search'
 
 const Routes = () => {
     return (
@@ -18,6 +19,7 @@ const Routes = () => {
                                 <Broutes>
                                     <Route exact path="/play/channels" element={<HomePage />} />
                                     <Route exact path="/play/channels/:id" element={<VideoDetailPage />} />
+                                    <Route exact path="/play/channels/search" element={<SearcPage />} />
                                 </Broutes>
                             </ProductsProvider>
                         </CommentsProvider>
