@@ -10,6 +10,22 @@ const videoschema = new mongoose.Schema({
         required: true,
         type: String
     },
+    url: {
+        required: true,
+        type: String
+    },
+    title: {
+        required: true,
+        type: String
+    },
+    views: {
+        required: true,
+        type: Number
+    },
+    store_name: {
+        required: true,
+        type: String
+    }
 })
 
 const Video = mongoose.model('Videos', videoschema);
@@ -40,6 +56,10 @@ const productschema = new mongoose.Schema({
         required: true,
         type: String
     },
+    thumbnail_url: {
+        required: true,
+        type: String
+    },
     title: {
         required: true,
         type: String
@@ -48,8 +68,12 @@ const productschema = new mongoose.Schema({
         required: true,
         type: Number
     },
+    discount: {
+        require: false,
+        type: Number
+    },
     video_id: {
-        required: false,
+        required: true,
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Videos'
     }
@@ -77,6 +101,9 @@ const seedData = async () => {
             const video = {
                 title: faker.lorem.sentence(),
                 thumbnail_url: faker.image.url(),
+                url: faker.internet.url(),
+                store_name: faker.commerce.department(),
+                views: 0
             };
             videos.push(video);
 
@@ -86,7 +113,9 @@ const seedData = async () => {
                 const product = {
                     title: faker.lorem.sentence(),
                     price: faker.commerce.price(),
+                    discount: Math.floor(Math.random() * (90 - 50 + 1)) + 50,
                     product_link: faker.internet.url(),
+                    thumbnail_url: faker.image.url()
                 };
                 products.push(product);
             }

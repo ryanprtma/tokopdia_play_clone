@@ -17,6 +17,10 @@ const productschema = new mongoose.Schema({
         required: true,
         type: Number
     },
+    discount: {
+        required: false,
+        type: Number
+    },
     video_id: {
         required: true,
         type: mongoose.Schema.Types.ObjectId,
