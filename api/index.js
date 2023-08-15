@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(cors());
 
 const Connection = require('./connection');
-const mongoString = process.env.DATABASE_URL;
+const mongoString = process.env.MONGO_CONNECTION_STRING;
 const database = new Connection(mongoString);
 
 database.start();
@@ -26,6 +26,6 @@ app.use(
 app.use('/api', videosRoutes);
 app.use('/api', productsRoute);
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log(`Server Started at 3000`)
 });
