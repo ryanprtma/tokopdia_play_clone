@@ -19,7 +19,7 @@ export default function SearchPage() {
         e.preventDefault();
 
         try {
-            const apiUrl = `http://localhost:3000/api/videos?search=${search}`;
+            const apiUrl = `/api/videos?search=${search}`;
             const response = await fetch(apiUrl, {
                 method: 'GET',
             });

@@ -12,7 +12,7 @@ function VideoThumbnail(props) {
 
     const fetchWebApi = async (videoId) => {
         try {
-            const apiUrl = `http://localhost:3000/api/videos/${videoId}/products`;
+            const apiUrl = `/api/videos/${videoId}/products`;
             const response = await fetch(apiUrl, {
                 method: 'GET'
             });
@@ -36,7 +36,7 @@ function VideoThumbnail(props) {
         <>
             <Card sx={{ maxWidth: 350, borderRadius: 3 }}>
                 <div style={{ position: "relative" }}>
-                    <Link to={`/play/channels/${additionalProp._id}`}>
+                    <Link to={`/${additionalProp._id}`}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"

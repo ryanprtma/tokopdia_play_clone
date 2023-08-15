@@ -7,7 +7,7 @@ export const VideosThumbnailProvider = (props) => {
 
     const fetchWebApi = async () => {
         try {
-            const apiUrl = "http://localhost:3000/api/videos";
+            const apiUrl = "/api/videos";
             const response = await fetch(apiUrl, {
                 method: 'GET'
             });

@@ -11,7 +11,7 @@ export const CommentsProvider = (props) => {
 
     const fetchWebApi = async (videoId) => {
         try {
-            const apiUrl = `http://localhost:3000/api/videos/${videoId}/comments`;
+            const apiUrl = `/api/videos/${videoId}/comments`;
             const response = await fetch(apiUrl, {
                 method: 'GET'
             });

@@ -8,7 +8,7 @@ export const ProductsProvider = (props) => {
 
     const fetchWebApi = async (videoId) => {
         try {
-            const apiUrl = `http://localhost:3000/api/videos/${videoId}/products`;
+            const apiUrl = `/api/videos/${videoId}/products`;
             const response = await fetch(apiUrl, {
                 method: 'GET'
             });

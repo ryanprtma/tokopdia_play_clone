@@ -16,7 +16,7 @@ const VideoDetailPage = () => {
 
     const fetchWebApi = async (videoId) => {
         try {
-            const apiUrl = `http://localhost:3000/api/videos/${videoId}`;
+            const apiUrl = `/api/videos/${videoId}`;
             const response = await fetch(apiUrl, {
                 method: 'GET'
             });

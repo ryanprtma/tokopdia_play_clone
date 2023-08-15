@@ -14,7 +14,7 @@ const VideoDetailLayouts = (props) => {
             <Box sx={{ position: 'absolute', height: '100%', zIndex: 2, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
                 <AppBar sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
                     <Toolbar>
-                        <Link to="/play/channels">
+                        <Link to="/">
                             <IconButton
                                 size="large"
                                 edge="start"

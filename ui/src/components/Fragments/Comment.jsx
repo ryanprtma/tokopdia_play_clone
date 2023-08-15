@@ -23,7 +23,7 @@ export default function Comment({ videoId }) {
         setIsCommented(true);
 
         try {
-            const apiUrl = `http://localhost:3000/api/videos/${videoId}/comment`;
+            const apiUrl = `/api/videos/${videoId}/comment`;
             await fetch(apiUrl, {
                 method: 'POST',
                 headers: {

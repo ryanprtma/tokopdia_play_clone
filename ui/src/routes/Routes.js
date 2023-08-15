@@ -17,9 +17,9 @@ const Routes = () => {
                         <CommentsProvider>
                             <ProductsProvider>
                                 <Broutes>
-                                    <Route exact path="/play/channels" element={<HomePage />} />
-                                    <Route exact path="/play/channels/:id" element={<VideoDetailPage />} />
-                                    <Route exact path="/play/channels/search" element={<SearcPage />} />
+                                    <Route exact path="/" element={<HomePage />} />
+                                    <Route exact path="/:id" element={<VideoDetailPage />} />
+                                    <Route exact path="/search" element={<SearcPage />} />
                                 </Broutes>
                             </ProductsProvider>
                         </CommentsProvider>

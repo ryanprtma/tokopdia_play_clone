@@ -21,7 +21,7 @@ export default function ButtonAppBar() {
                 <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
                     <strong>Play</strong>
                 </Typography>
-                <Link to="/play/channels/search">
+                <Link to="/search">
                     <IconButton >
                         <SearchIcon sx={{ color: 'white' }} />
                     </IconButton>
