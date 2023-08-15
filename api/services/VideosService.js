@@ -14,10 +14,29 @@ class VideosService {
     async getVideoById(id) {
         try {
             const result = await Video.findById(id);
+
+
             if (!result) {
                 throw new NotFoundError('Video tidak ditemukan');
             }
+
+            await this.addViews(result);
+
             return result;
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async addViews(video) {
+        let currentviews = video.views ?? 0;
+        currentviews += 1;
+        try {
+            const result = await Video.findByIdAndUpdate(video.id, { views: currentviews }, { new: true });
+
+            if (!result) {
+                throw new NotFoundError('Video tidak ditemukan');
+            }
         } catch (error) {
             throw error
         }
