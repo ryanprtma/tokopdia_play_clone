@@ -1,6 +1,6 @@
 # Tokopedia Play Clone App
 
-This repository contains backend for the final project of
+This repository contains backend and frontend for the final project of
 the course "Generasi Gigih 3.0 - Fullstack Engineering" by
 [Goto Impact Foundation](https://www.goto-impact.org).
 
