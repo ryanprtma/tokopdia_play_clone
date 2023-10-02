@@ -394,11 +394,11 @@ This API return a list of videos.
 
 2. Run docker container
     ```bash
-    docker run -dp 80:80 ryanprtma/gigih-final-project
+    docker run --name tkpd_play -d -p 80:80 ryanprtma/gigih-final-project
     ```
     or you can run on your own port
     ```bash
-    docker run -dp your-port:80 ryanprtma/gigih-final-project
+    docker run --name tkpd_play -d -p your-port:80 ryanprtma/gigih-final-project
     ```
 
 3. Now the server is running on port 80:80. So you can access it via `localhost`
